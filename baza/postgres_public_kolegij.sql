@@ -14,5 +14,6 @@ create table kolegij
 alter table kolegij
     owner to postgres;
 
-INSERT INTO public.kolegij (id_kolegij, pocetak_k, kraj_k, naziv_kolegija, fk_semestar) VALUES (1, '2022-02-17 08:00:00.000000', null, 'VAS', 1);
-INSERT INTO public.kolegij (id_kolegij, pocetak_k, kraj_k, naziv_kolegija, fk_semestar) VALUES (2, '2022-02-17 08:00:00.000000', null, 'TBP', 1);
+INSERT INTO public.kolegij (id_kolegij, pocetak_k, kraj_k, naziv_kolegija, fk_semestar) VALUES (4, '2022-02-06 12:45:21.456680', null, 'VAS', 3);
+INSERT INTO public.kolegij (id_kolegij, pocetak_k, kraj_k, naziv_kolegija, fk_semestar) VALUES (5, '2022-02-06 12:45:27.475158', null, 'MIS', 3);
+INSERT INTO public.kolegij (id_kolegij, pocetak_k, kraj_k, naziv_kolegija, fk_semestar) VALUES (6, '2022-02-06 12:46:54.993302', '2022-02-06 12:55:12.724938', 'RG', 3);

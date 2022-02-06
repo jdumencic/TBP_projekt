@@ -26,7 +26,7 @@ create table zapis
 alter table zapis
     owner to postgres;
 
-INSERT INTO public.zapis (id_zapis, pocetak_z, kraj_z, zapocinje, zavrsava, dan, br_studenata_zapis, fk_vrsta, fk_dvorana, fk_raspored, fk_kolegij) VALUES (4, '2022-02-17 08:00:00.000000', null, '09:00:00', '11:00:00', 'Petak', 28, 2, 2, 1, 1);
-INSERT INTO public.zapis (id_zapis, pocetak_z, kraj_z, zapocinje, zavrsava, dan, br_studenata_zapis, fk_vrsta, fk_dvorana, fk_raspored, fk_kolegij) VALUES (2, '2022-02-17 08:00:00.000000', null, '15:00:00', '16:30:00', 'Utorak', 10, 3, 3, 1, 2);
-INSERT INTO public.zapis (id_zapis, pocetak_z, kraj_z, zapocinje, zavrsava, dan, br_studenata_zapis, fk_vrsta, fk_dvorana, fk_raspored, fk_kolegij) VALUES (5, '2022-02-17 08:00:00.000000', null, '11:00:00', '12:00:00', 'Ponedjeljak', 50, 2, 2, 1, 1);
-INSERT INTO public.zapis (id_zapis, pocetak_z, kraj_z, zapocinje, zavrsava, dan, br_studenata_zapis, fk_vrsta, fk_dvorana, fk_raspored, fk_kolegij) VALUES (1, '2022-02-17 08:00:00.000000', null, '09:10:00', '10:00:00', 'Srijeda', 50, 1, 1, 1, 1);
+INSERT INTO public.zapis (id_zapis, pocetak_z, kraj_z, zapocinje, zavrsava, dan, br_studenata_zapis, fk_vrsta, fk_dvorana, fk_raspored, fk_kolegij) VALUES (8, '2022-02-06 12:49:04.662572', null, '08:00:00', '10:00:00', 'Ponedjeljak', 88, 1, 1, 1, 5);
+INSERT INTO public.zapis (id_zapis, pocetak_z, kraj_z, zapocinje, zavrsava, dan, br_studenata_zapis, fk_vrsta, fk_dvorana, fk_raspored, fk_kolegij) VALUES (10, '2022-02-06 12:50:08.246651', null, '11:00:00', '12:00:00', 'Utorak', 29, 2, 4, 1, 5);
+INSERT INTO public.zapis (id_zapis, pocetak_z, kraj_z, zapocinje, zavrsava, dan, br_studenata_zapis, fk_vrsta, fk_dvorana, fk_raspored, fk_kolegij) VALUES (11, '2022-02-06 12:50:50.370015', null, '14:00:00', '16:00:00', 'Četvrtak', 50, 1, 6, 1, 4);
+INSERT INTO public.zapis (id_zapis, pocetak_z, kraj_z, zapocinje, zavrsava, dan, br_studenata_zapis, fk_vrsta, fk_dvorana, fk_raspored, fk_kolegij) VALUES (12, '2022-02-06 12:51:29.402009', '2022-02-06 12:54:14.325257', '16:00:00', '17:30:00', 'Srijeda', 15, 3, 5, 1, 4);

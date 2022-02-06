@@ -14,5 +14,8 @@ create table biljeske
 alter table biljeske
     owner to postgres;
 
-INSERT INTO public.biljeske (id_biljeske, pocetak_b, kraj_b, tekst, fk_zapis) VALUES (2, '2022-02-17 08:00:00.000000', null, null, 4);
-INSERT INTO public.biljeske (id_biljeske, pocetak_b, kraj_b, tekst, fk_zapis) VALUES (3, '2022-02-17 08:00:00.000000', null, 'Dobrodošli na kolegij VAS!', 5);
+INSERT INTO public.biljeske (id_biljeske, pocetak_b, kraj_b, tekst, fk_zapis) VALUES (7, '2022-02-06 12:49:04.662572', null, 'Dobrodošli na predavanje iz kolegija MIS!', 8);
+INSERT INTO public.biljeske (id_biljeske, pocetak_b, kraj_b, tekst, fk_zapis) VALUES (8, '2022-02-06 12:50:08.246651', null, 'Dobrodošli na seminar iz kolegija MIS!', 10);
+INSERT INTO public.biljeske (id_biljeske, pocetak_b, kraj_b, tekst, fk_zapis) VALUES (9, '2022-02-06 12:50:50.370015', null, 'Dobrodošli na predavanje iz kolegija VAS!', 11);
+INSERT INTO public.biljeske (id_biljeske, pocetak_b, kraj_b, tekst, fk_zapis) VALUES (10, '2022-02-06 12:51:29.402009', null, 'Dobrodošli na labos iz kolegija VAS!', 12);
+INSERT INTO public.biljeske (id_biljeske, pocetak_b, kraj_b, tekst, fk_zapis) VALUES (11, '2022-02-06 12:53:24.133986', null, 'Predavanje se održava online!', 8);

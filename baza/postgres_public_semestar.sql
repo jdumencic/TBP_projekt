@@ -11,4 +11,4 @@ create table semestar
 alter table semestar
     owner to postgres;
 
-INSERT INTO public.semestar (id_semestar, pocetak_s, kraj_s, naziv_semestra) VALUES (1, '2022-02-21 08:00:00.000000', '2022-06-17 16:00:00.000000', '2.');
+INSERT INTO public.semestar (id_semestar, pocetak_s, kraj_s, naziv_semestra) VALUES (3, '2022-02-06 12:44:29.067228', null, 'Zimski semestar');
