@@ -1,0 +1,84 @@
+CREATE OR REPLACE FUNCTION nova_biljeska() RETURNS trigger AS
+$biljeska$
+DECLARE
+    predmet VARCHAR;
+    nastava VARCHAR;
+BEGIN
+    SELECT naziv_kolegija INTO predmet FROM kolegij WHERE id_kolegij = new.fk_kolegij;
+    SELECT naziv_vrsta INTO nastava FROM vrsta_nastave WHERE id_vrsta = new.fk_vrsta;
+    INSERT INTO biljeske(pocetak_b, fk_zapis, tekst)
+    VALUES (new.pocetak_z, new.id_zapis, CONCAT('Dobrodošli na ', nastava, ' iz kolegija ', predmet, '!'));
+    RETURN new;
+END;
+$biljeska$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS biljeska ON zapis;
+
+CREATE TRIGGER biljeska AFTER INSERT ON "zapis"
+FOR EACH ROW EXECUTE PROCEDURE nova_biljeska();
+
+
+CREATE OR REPLACE FUNCTION provjera_kapaciteta() RETURNS trigger AS
+$provjera$
+DECLARE
+    kapacitet int;
+BEGIN
+    SELECT br_studenata_dvorana INTO kapacitet FROM dvorana WHERE id_dvorana = new.fk_dvorana;
+    IF new.br_studenata_zapis>kapacitet THEN RAISE EXCEPTION 'Nedovoljan broj mjesta u dvorani!';
+    ELSE RETURN new;
+    END IF;
+END;
+$provjera$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS provjera ON zapis;
+
+CREATE TRIGGER provjera BEFORE INSERT OR UPDATE ON "zapis"
+FOR EACH ROW EXECUTE PROCEDURE provjera_kapaciteta();
+
+CREATE OR REPLACE FUNCTION brisanje_biljeski() RETURNS trigger AS
+$brisanje$
+BEGIN
+    DELETE FROM biljeske WHERE fk_zapis=old.id_zapis;
+    RETURN old;
+END;
+$brisanje$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS brisanje ON zapis;
+
+CREATE OR REPLACE FUNCTION provjera_preklapanja() RETURNS trigger AS
+$preklapanje$
+DECLARE
+    broj int;
+BEGIN
+    SELECT COUNT(*)
+    INTO broj
+    FROM zapis
+    WHERE kraj_z IS NULL
+      AND new.dan = dan
+      AND new.zapocinje >= zapocinje AND new.zapocinje <= zapis.zavrsava
+      AND new.pocetak_z >= pocetak_z;
+
+    IF NEW.kraj_z IS NOT NULL THEN
+		RETURN new;
+	END IF;
+
+    IF broj > 0 THEN
+        RAISE EXCEPTION 'Ne može!';
+    ELSE
+        RETURN new;
+    END IF;
+END;
+$preklapanje$ LANGUAGE plpgsql;
+
+CREATE TRIGGER preklapanje
+    BEFORE INSERT OR UPDATE
+    ON "zapis"
+    FOR EACH ROW
+EXECUTE PROCEDURE provjera_preklapanja();
+
+
+
+
+
+
+
